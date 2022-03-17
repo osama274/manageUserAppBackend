@@ -20,8 +20,7 @@ const execMongo = async (done) => {
 
 app.get('/', (req, res) => {
 	execMongo(async (db) => {
-		const users = await db.collection('users100').find().sort({_id:-1})
-			.project({
+		const users = await db.collection('users100').find().sort({_id:-1}).project({
 				name: 1,
 				username: 1,
 				email: 1
